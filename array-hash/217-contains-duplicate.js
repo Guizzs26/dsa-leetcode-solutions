@@ -19,7 +19,7 @@ if every element is distinct.
  * @param {number[]} nums
  * @return {boolean}
  */
-let hasDuplicate2 = (nums) => {
+let hasDuplicate1 = (nums) => {
   const set = new Set();
 
   for (let i = 0; i < nums.length; i++) {
@@ -43,22 +43,22 @@ let hasDuplicate2 = (nums) => {
  * @param {number[]} nums
  * @return {boolean}
  */
-let hasDuplicate = (nums) => {
-  const hashMap = {};
+let hasDuplicate2 = (nums) => {
+  const obj = {};
 
   for (let i = 0; i < nums.length; i++) {
     const value = nums[i];
 
-    if (hashMap[value]) {
+    if (obj[value]) {
       return true;
     }
 
-    hashMap[value] = true;
+    obj[value] = true;
   }
   return false;
 };
 
-// Thir solution (less verbose but less explicit)
+// Thir solution (less verbose, very elegant but less explicit)
 
 /*
   Time complexity - O(n)
@@ -75,7 +75,7 @@ let hasDuplicate3 = (nums) => {
   return new Set(nums).size != nums.length;
 };
 
-// Forth solution (worst)
+// Forth solution (worst, brute force)
 
 /*
   Time complexity - O(n^2)
